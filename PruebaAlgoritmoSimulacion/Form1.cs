@@ -61,7 +61,7 @@ namespace PruebaAlgoritmoSimulacion
                 dataGridView1.Rows[i].Cells[Int32.Parse(numeroColumna3) - 1].Value = lista[i].Longitud.ToString();
             }
         }
-
+        /*
         public void DescargaExcel(DataGridView data)
         {
             //Paso 0: Instalar completamente de excel
@@ -90,10 +90,48 @@ namespace PruebaAlgoritmoSimulacion
             //Paso 3: visibilidad
             exportarExcel.Visible = true;
         }
+        */
+        public void DescargaCSV(DataGridView data)
+        {
+            // Paso 0: Definir la ruta donde se guardará el archivo CSV
+            string filePath = @"C:\Users\Samantha\Desktop\files\file.csv"; // Cambia la ruta según sea necesario
+
+            // Paso 1: Crear el archivo CSV y usar StreamWriter para escribir
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                // Paso 1.1: Escribir las cabeceras
+                string[] columnHeaders = data.Columns.Cast<DataGridViewColumn>()
+                    .Select(column => column.HeaderText)
+                    .ToArray();
+                writer.WriteLine(string.Join(",", columnHeaders));
+
+                // Paso 2: Escribir las filas
+                foreach (DataGridViewRow row in data.Rows)
+                {
+                    // Ignorar filas vacías
+                    if (!row.IsNewRow)
+                    {
+                        string[] cellValues = row.Cells.Cast<DataGridViewCell>()
+                            .Select(cell => cell.Value?.ToString().Replace(",", ";")).ToArray();
+                        writer.WriteLine(string.Join(",", cellValues));
+                    }
+                }
+            }
+
+            // Mensaje de éxito
+            MessageBox.Show("CSV exportado exitosamente en: " + filePath);
+        }
+
+
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DescargaCSV(dataGridView1);
         }
     }
 }
