@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PruebaAlgoritmoSimulacion.Clases
 {
-    internal class clasenueva
+    public class plantas
     {
     }
 }

@@ -34,6 +34,9 @@
             label2 = new Label();
             textBox2 = new TextBox();
             dataGridView1 = new DataGridView();
+            label3 = new Label();
+            textBox3 = new TextBox();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -87,13 +90,40 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(240, 150);
             dataGridView1.TabIndex = 5;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(161, 218);
+            label3.Name = "label3";
+            label3.Size = new Size(49, 15);
+            label3.TabIndex = 7;
+            label3.Text = "Mínimo";
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(286, 212);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(100, 23);
+            textBox3.TabIndex = 6;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(450, 183);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 23);
+            button2.TabIndex = 8;
+            button2.Text = "Descarga";
+            button2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button2);
+            Controls.Add(label3);
+            Controls.Add(textBox3);
             Controls.Add(dataGridView1);
             Controls.Add(label2);
             Controls.Add(textBox2);
@@ -116,5 +146,8 @@
         private Label label2;
         private TextBox textBox2;
         private DataGridView dataGridView1;
+        private Label label3;
+        private TextBox textBox3;
+        private Button button2;
     }
 }
