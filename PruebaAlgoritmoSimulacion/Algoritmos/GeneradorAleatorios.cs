@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace PruebaAlgoritmoSimulacion.Algoritmos
 {
-    public class GeneradorAleatorios
+    
+    
+    
+    /*public class GeneradorAleatorios
     {
         public List<Asignacion> CrearListaOrigen(int puntosTotales,int limiteInferior,int limiteSuperior)
         {
@@ -34,5 +37,5 @@ namespace PruebaAlgoritmoSimulacion.Algoritmos
             return listaAsignacion;
 
         }
-    }
+    }*/
 }

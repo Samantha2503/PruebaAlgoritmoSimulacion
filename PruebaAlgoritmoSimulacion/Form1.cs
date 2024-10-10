@@ -20,7 +20,7 @@ namespace PruebaAlgoritmoSimulacion
         private void button1_Click(object sender, EventArgs e)
         {
             //Paso 0: condicion vacia
-            Validaciones(textBox1.Text, textBox2.Text, textBox3.Text,textBox4.Text);
+            Validaciones(textBox3.Text, textBox1.Text, textBox4.Text,textBox2.Text);
 
             //Paso 1: Inicializa parámetros
             int x = Convert.ToInt32(textBox1.Text);
@@ -30,9 +30,7 @@ namespace PruebaAlgoritmoSimulacion
 
 
             //Paso 2: llamar algoritmo
-            GeneradorAleatorios generador = new GeneradorAleatorios();
-            List<Asignacion> listaSalida = generador.CrearListaOrigen(x, c, a,mod);
-            llenarGrid(listaSalida);
+            llenarGrid(x,c,a,mod);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -47,6 +45,7 @@ namespace PruebaAlgoritmoSimulacion
                 MessageBox.Show("Los numeros deben ser mayores a 0");
                 return;
             }
+
             int x = Convert.ToInt32(textBox1.Text);
             int c = Convert.ToInt32(textBox2.Text);
             int a = Convert.ToInt32(textBox3.Text);
@@ -61,21 +60,16 @@ namespace PruebaAlgoritmoSimulacion
                 }
 
             }
-
             else
             {
-
                 MessageBox.Show("Los numeros tienen que ser MAYOR que cero");
                 return;
             }
+       
+    }
 
 
-
-
-        }
-
-
-        public void llenarGrid(List<Asignacion> lista)
+        public void llenarGrid(int w, int b, int z, int d)
         {
             //Paso 0: Indicas el número de columnas 
             string numeroColumna1 = "1";
@@ -83,17 +77,37 @@ namespace PruebaAlgoritmoSimulacion
             string numeroColumna3 = "3";
             //Paso 1: Determinas la cantidad de columnas 
             dataGridView1.Columns.Clear();
-            dataGridView1.Columns.Add(numeroColumna1, "X(n)");
+            dataGridView1.Columns.Add(numeroColumna1, "Xn");
             dataGridView1.Columns.Add(numeroColumna2, "a*X(n)+c");
             dataGridView1.Columns.Add(numeroColumna3, "[a*X(n)+c] mod m");
-            //Paso 2: Recorrer el grid para cada fila y llenar de valores aleatorios
-            for (int i = 0; i < lista.Count; i++)
+            //Paso 2: Algoritmo
+            int x = Convert.ToInt32(textBox1.Text);
+            int c = Convert.ToInt32(textBox2.Text);
+            int a = Convert.ToInt32(textBox3.Text);
+            int mod = Convert.ToInt32(textBox4.Text);
+            
+            int resultadoOperacion;
+            int modResultado;
+            do
             {
-                dataGridView1.Rows.Add();
-                dataGridView1.Rows[i].Cells[Int32.Parse(numeroColumna1) - 1].Value = (lista[i].IdPunto).ToString();
-                dataGridView1.Rows[i].Cells[Int32.Parse(numeroColumna2) - 1].Value = lista[i].Latitud.ToString();
-                dataGridView1.Rows[i].Cells[Int32.Parse(numeroColumna3) - 1].Value = lista[i].Longitud.ToString();
-            }
+                // Realizar la operación (a * x) + c
+                resultadoOperacion = (a * x) + c;
+
+                // Aplicar el módulo m a la operación
+                modResultado = resultadoOperacion % mod;
+
+                // Añadir una fila al DataGridView con los valores
+                dataGridView1.Rows.Add(x, resultadoOperacion, modResultado);
+
+                // Actualizar el valor de x para la siguiente iteración
+                x = modResultado;
+
+            } while (modResultado != 0);
+
+
+
+
+           
         }
         /*
         public void DescargaExcel(DataGridView data)
@@ -128,7 +142,7 @@ namespace PruebaAlgoritmoSimulacion
         public void DescargaCSV(DataGridView data)
         {
             // Paso 0: Definir la ruta donde se guardará el archivo CSV
-            string filePath = @"C:\Users\Samantha\Desktop\files\file.csv"; // Cambia la ruta según sea necesario
+            string filePath = @"C:\Users\Samantha\Desktop\file2.csv"; // Cambia la ruta según sea necesario
 
             // Paso 1: Crear el archivo CSV y usar StreamWriter para escribir
             using (StreamWriter writer = new StreamWriter(filePath))
@@ -158,10 +172,10 @@ namespace PruebaAlgoritmoSimulacion
 
 
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        /*private void textBox3_TextChanged(object sender, EventArgs e)
         {
 
-        }
+        }*/
 
         private void button2_Click(object sender, EventArgs e)
         {

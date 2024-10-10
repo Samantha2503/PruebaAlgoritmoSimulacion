@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             button1 = new Button();
-            textBox1 = new TextBox();
+            textBox3 = new TextBox();
             label1 = new Label();
             label2 = new Label();
-            textBox2 = new TextBox();
+            textBox1 = new TextBox();
             dataGridView1 = new DataGridView();
             label3 = new Label();
-            textBox3 = new TextBox();
+            textBox4 = new TextBox();
             button2 = new Button();
             label4 = new Label();
-            textBox4 = new TextBox();
+            textBox2 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -52,12 +52,12 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // textBox1
+            // textBox3
             // 
-            textBox1.Location = new Point(285, 160);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 1;
+            textBox3.Location = new Point(285, 160);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(100, 23);
+            textBox3.TabIndex = 1;
             // 
             // label1
             // 
@@ -78,12 +78,12 @@
             label2.TabIndex = 4;
             label2.Text = "x";
             // 
-            // textBox2
+            // textBox1
             // 
-            textBox2.Location = new Point(285, 92);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 3;
+            textBox1.Location = new Point(285, 92);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(100, 23);
+            textBox1.TabIndex = 3;
             // 
             // dataGridView1
             // 
@@ -102,12 +102,12 @@
             label3.TabIndex = 7;
             label3.Text = "mod";
             // 
-            // textBox3
+            // textBox4
             // 
-            textBox3.Location = new Point(285, 195);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 6;
+            textBox4.Location = new Point(285, 195);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(100, 23);
+            textBox4.TabIndex = 6;
             // 
             // button2
             // 
@@ -129,12 +129,12 @@
             label4.Text = "c";
             label4.Click += label4_Click;
             // 
-            // textBox4
+            // textBox2
             // 
-            textBox4.Location = new Point(285, 126);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(100, 23);
-            textBox4.TabIndex = 9;
+            textBox2.Location = new Point(285, 126);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(100, 23);
+            textBox2.TabIndex = 9;
             // 
             // Form1
             // 
@@ -142,15 +142,15 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(label4);
-            Controls.Add(textBox4);
+            Controls.Add(textBox2);
             Controls.Add(button2);
             Controls.Add(label3);
-            Controls.Add(textBox3);
+            Controls.Add(textBox4);
             Controls.Add(dataGridView1);
             Controls.Add(label2);
-            Controls.Add(textBox2);
-            Controls.Add(label1);
             Controls.Add(textBox1);
+            Controls.Add(label1);
+            Controls.Add(textBox3);
             Controls.Add(button1);
             Name = "Form1";
             Text = "Form1";
@@ -163,15 +163,15 @@
         #endregion
 
         private Button button1;
-        private TextBox textBox1;
+        private TextBox textBox3;
         private Label label1;
         private Label label2;
-        private TextBox textBox2;
+        private TextBox textBox1;
         private DataGridView dataGridView1;
         private Label label3;
-        private TextBox textBox3;
+        private TextBox textBox4;
         private Button button2;
         private Label label4;
-        private TextBox textBox4;
+        private TextBox textBox2;
     }
 }
