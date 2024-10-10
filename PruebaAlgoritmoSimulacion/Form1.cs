@@ -20,10 +20,7 @@ namespace PruebaAlgoritmoSimulacion
         private void button1_Click(object sender, EventArgs e)
         {
             //Paso 0: condicion vacia
-            if (textBox1.Text.Equals("") || textBox2.Text.Equals("") || textBox3.Text.Equals(""))
-            {
-                MessageBox.Show("Los numeros deben ser mayores a 0");
-            }
+            Validaciones(textBox1.Text, textBox2.Text, textBox3.Text);
 
             //Paso 1: Inicializa parámetros
             int puntosTotales = Convert.ToInt32(textBox1.Text);
@@ -40,6 +37,22 @@ namespace PruebaAlgoritmoSimulacion
         {
 
         }
+
+        public void Validaciones(string a, string b,string c)
+        {
+            if (textBox1.Text.Equals("") || textBox2.Text.Equals("") || textBox3.Text.Equals(""))
+            {
+                MessageBox.Show("Los numeros deben ser mayores a 0");
+                return;
+            }
+            int puntosTotales =Convert.ToInt32(textBox1.Text);
+            int maximo = Convert.ToInt32(textBox1.Text);
+            int minimo = Convert.ToInt32(textBox1.Text);
+
+
+
+        }
+
 
         public void llenarGrid(List<Asignacion> lista)
         {
