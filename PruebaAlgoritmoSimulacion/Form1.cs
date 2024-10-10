@@ -20,16 +20,18 @@ namespace PruebaAlgoritmoSimulacion
         private void button1_Click(object sender, EventArgs e)
         {
             //Paso 0: condicion vacia
-            Validaciones(textBox1.Text, textBox2.Text, textBox3.Text);
+            Validaciones(textBox1.Text, textBox2.Text, textBox3.Text,textBox4.Text);
 
             //Paso 1: Inicializa parámetros
-            int puntosTotales = Convert.ToInt32(textBox1.Text);
-            int maximo = Convert.ToInt32(textBox2.Text);
-            int minimo = Convert.ToInt32(textBox3.Text);
+            int x = Convert.ToInt32(textBox1.Text);
+            int c = Convert.ToInt32(textBox2.Text);
+            int a = Convert.ToInt32(textBox3.Text);
+            int mod = Convert.ToInt32(textBox4.Text);
+
 
             //Paso 2: llamar algoritmo
             GeneradorAleatorios generador = new GeneradorAleatorios();
-            List<Asignacion> listaSalida = generador.CrearListaOrigen(puntosTotales, minimo, maximo);
+            List<Asignacion> listaSalida = generador.CrearListaOrigen(x, c, a,mod);
             llenarGrid(listaSalida);
         }
 
@@ -38,16 +40,35 @@ namespace PruebaAlgoritmoSimulacion
 
         }
 
-        public void Validaciones(string a, string b,string c)
+        public void Validaciones(string w, string b, string z,string d)
         {
-            if (textBox1.Text.Equals("") || textBox2.Text.Equals("") || textBox3.Text.Equals(""))
+            if (textBox1.Text.Equals("") || textBox2.Text.Equals("") || textBox3.Text.Equals("") || textBox4.Text.Equals(""))
             {
                 MessageBox.Show("Los numeros deben ser mayores a 0");
                 return;
             }
-            int puntosTotales =Convert.ToInt32(textBox1.Text);
-            int maximo = Convert.ToInt32(textBox1.Text);
-            int minimo = Convert.ToInt32(textBox1.Text);
+            int x = Convert.ToInt32(textBox1.Text);
+            int c = Convert.ToInt32(textBox2.Text);
+            int a = Convert.ToInt32(textBox3.Text);
+            int mod = Convert.ToInt32(textBox4.Text);
+            if ( x > 0 && a > 0 && c > 0 && mod > 0)
+            {
+                if (mod > a && mod > c && mod > x) { }
+                else
+                {
+                    MessageBox.Show("m debe ser mayor a x, a y c");
+                    return;
+                }
+
+            }
+
+            else
+            {
+
+                MessageBox.Show("Los numeros tienen que ser MAYOR que cero");
+                return;
+            }
+
 
 
 
@@ -62,9 +83,9 @@ namespace PruebaAlgoritmoSimulacion
             string numeroColumna3 = "3";
             //Paso 1: Determinas la cantidad de columnas 
             dataGridView1.Columns.Clear();
-            dataGridView1.Columns.Add(numeroColumna1, "Id");
-            dataGridView1.Columns.Add(numeroColumna2, "Latitud");
-            dataGridView1.Columns.Add(numeroColumna3, "Longitud");
+            dataGridView1.Columns.Add(numeroColumna1, "X(n)");
+            dataGridView1.Columns.Add(numeroColumna2, "a*X(n)+c");
+            dataGridView1.Columns.Add(numeroColumna3, "[a*X(n)+c] mod m");
             //Paso 2: Recorrer el grid para cada fila y llenar de valores aleatorios
             for (int i = 0; i < lista.Count; i++)
             {
@@ -145,6 +166,11 @@ namespace PruebaAlgoritmoSimulacion
         private void button2_Click(object sender, EventArgs e)
         {
             DescargaCSV(dataGridView1);
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
